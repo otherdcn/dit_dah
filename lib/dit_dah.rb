@@ -4,18 +4,38 @@ module DitDah
   class Error < StandardError; end
   
   class DitDah
-    def initialize(input_text=nil)
-      @input_text = input_text
+    def initialize()
+      @input_text = nil
       @morseNalpha = Hash.new
       @morse_code = Array.new
+
+      init_morse_chars
+    end
+
+    def set_input_text(input_text)
+      @input_text = input_text.split("").map(&:to_s)
     end
 
     def get_input_text
       @input_text
     end
 
-    def set_input_text(input_text)
-      @input_text = input_text
+    def to_morse_code(arg_text=nil)
+      text = arg_text.nil? ? get_input_text : arg_text.split("").map(&:to_s)
+      
+      if !(text.nil?)
+        text.each do |char|
+          @morse_code.push(@morseNalpha[char])
+        end
+
+        get_morse_code
+      else
+        nil
+      end
+    end
+
+    def get_morse_code
+      @morse_code
     end
 
     def init_morse_chars
