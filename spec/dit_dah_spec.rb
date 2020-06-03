@@ -14,7 +14,9 @@ RSpec.describe DitDah do
       expect(DitDah::DitDah.new).to_not be_nil
     end
 
-    describe "#get_input_text" do
+      describe "#get_input_text" do
+      it {is_expected.to respond_to(:to_morse_code)}
+      
       context "when getting input_text which is not set" do
         it "returns nil" do
           obj = DitDah::DitDah.new
@@ -29,11 +31,14 @@ RSpec.describe DitDah do
           obj.set_input_text("dcn")
 
           expect(obj.get_input_text).to eq(["d", "c", "n"])
+          expect(obj.get_input_text).to be_a(Array)
         end
       end
     end
 
     describe "#set_input_text" do
+      it {is_expected.to respond_to(:to_morse_code)}
+      
       context "when setting the value 'fragilistic' to input_text" do
         it "will set if #get_input_text equals to 'fragilistic' in split char array form" do
           obj = DitDah::DitDah.new
@@ -45,6 +50,8 @@ RSpec.describe DitDah do
     end
 
     describe "#to_morse_code" do
+      it {is_expected.to respond_to(:to_morse_code)}
+      
       context "given no argument" do
         it "returns morse code equivalence of the 'input_text' variable set by #set_input_text" do
           obj = DitDah::DitDah.new
@@ -70,6 +77,8 @@ RSpec.describe DitDah do
     end
 
     describe "#get_morse_code" do
+      it {is_expected.to respond_to(:to_morse_code)}
+      
       context "if #to_morse_code was not called earlier" do
         it "returns empty array" do
           obj = DitDah::DitDah.new
@@ -86,6 +95,10 @@ RSpec.describe DitDah do
           expect(obj.get_morse_code).to eq(["-..", "-.-.", "-."])
         end
       end
+    end
+
+    describe "#morseNalpha" do
+      it {is_expected.to respond_to(:morseNalpha)}
     end
   end
 end

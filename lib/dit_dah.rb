@@ -2,9 +2,11 @@ require "dit_dah/version"
 
 module DitDah
   class Error < StandardError; end
-  
+
   class DitDah
-    def initialize()
+    attr_reader :morseNalpha
+
+    def initialize
       @input_text = nil
       @morseNalpha = Hash.new
       @morse_code = Array.new
