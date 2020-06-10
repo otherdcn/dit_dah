@@ -60,10 +60,10 @@ RSpec.describe DitDah do
           expect(obj.to_morse_code).to eq(["-..", "-.-.", "-."])
         end
 
-        it "returns nil if 'input_text' instance variable is not set earlier" do
+        it "raises NoInputError if 'input_text' instance variable is not set earlier" do
           obj = DitDah::DitDah.new
 
-          expect(obj.to_morse_code).to be_nil
+          expect{ obj.to_morse_code }.to raise_error(DitDah::NoInputError)
         end
       end
 

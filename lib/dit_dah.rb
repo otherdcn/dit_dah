@@ -1,7 +1,7 @@
 require "dit_dah/version"
 
 module DitDah
-  class Error < StandardError; end
+  class NoInputError < StandardError; end
 
   class DitDah
     attr_reader :morseNalpha
@@ -32,7 +32,7 @@ module DitDah
 
         get_morse_code
       else
-        nil
+        raise NoInputError
       end
     end
 
