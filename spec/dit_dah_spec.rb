@@ -73,6 +73,26 @@ RSpec.describe DitDah do
 
           expect(obj.to_morse_code("dcn")).to eq(["-..", "-.-.", "-."])
         end
+
+        it "returns '.-' when input is 'a'" do
+          obj = DitDah::DitDah.new
+          obj.set_input_text("a")
+
+          expect(obj.to_morse_code).to eq([".-"])
+        end
+
+        it "returns '.-' when input is 'A'" do
+          obj = DitDah::DitDah.new
+          obj.set_input_text("A")
+
+          expect(obj.to_morse_code).to eq([".-"])
+        end
+
+        it "returns '.-' when to_morse_code argument is 'A'" do
+          obj = DitDah::DitDah.new
+
+          expect(obj.to_morse_code("A")).to eq([".-"])
+        end
       end
     end
 

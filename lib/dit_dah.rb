@@ -15,7 +15,7 @@ module DitDah
     end
 
     def set_input_text(input_text)
-      @input_text = input_text.split("").map(&:to_s)
+      @input_text = input_text.downcase.split("").map(&:to_s)
     end
 
     def get_input_text
@@ -23,7 +23,7 @@ module DitDah
     end
 
     def to_morse_code(arg_text=nil)
-      text = arg_text.nil? ? get_input_text : arg_text.split("").map(&:to_s)
+      text = arg_text.nil? ? get_input_text : arg_text.downcase.split("").map(&:to_s)
       
       if !(text.nil?)
         text.each do |char|
