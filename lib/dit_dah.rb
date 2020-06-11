@@ -25,7 +25,9 @@ module DitDah
 
     def to_morse_code(arg_text=nil)
       text = arg_text.nil? ? get_input_text : arg_text.downcase.split("").map(&:to_s)
-      
+
+      @morse_code.clear # clear existing content before adding to array
+
       if !(text.nil?)
         text.each do |char|
           @morse_code.push(MORSE_HASH[char])

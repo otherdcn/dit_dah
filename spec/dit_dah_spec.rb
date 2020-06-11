@@ -101,6 +101,15 @@ RSpec.describe DitDah do
           expect(obj.to_morse_code).to eq(["/"])
         end
       end
+
+      context "clears previous morse_code content" do
+        it "clears '.-' and stores '-...' after calling #to_morse again" do
+          obj = DitDah::DitDah.new
+          obj.to_morse_code("a")
+
+          expect(obj.to_morse_code("b")).to eq(["-..."])
+        end
+      end
     end
 
     describe "#get_morse_code" do
@@ -122,10 +131,6 @@ RSpec.describe DitDah do
           expect(obj.get_morse_code).to eq(["-..", "-.-.", "-."])
         end
       end
-    end
-
-    describe "#morseNalpha" do
-      it {is_expected.to respond_to(:morseNalpha)}
     end
   end
 end
