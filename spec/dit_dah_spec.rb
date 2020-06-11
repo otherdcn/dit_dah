@@ -93,6 +93,13 @@ RSpec.describe DitDah do
 
           expect(obj.to_morse_code("A")).to eq([".-"])
         end
+
+        it "returns '/' when empty string or space character" do
+          obj = DitDah::DitDah.new
+          obj.set_input_text(" ")
+
+          expect(obj.to_morse_code).to eq(["/"])
+        end
       end
     end
 
