@@ -2,8 +2,6 @@
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dit_dah`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -22,7 +20,46 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### DitDah::DitDah
+A quick rundown of the components:
+
+```ruby
+
+# Create the object
+morse_obj = DitDah::DitDah.new
+
+# Set text that you want to convert to morse code
+morse_obj.set_input_text "Hello there stranger"
+
+# Get that input text
+# Return value is the string split into a character array
+text = morse_obj.get_input_text
+
+# Convert/Translate to morse code
+morse_code = morse_obj.to_morse_code
+
+# Optionally: you can pass an argument
+morse_code2 = morse_obj.to_morse_code "Try me instead"
+
+# View morse_code stored in an array
+p morse_code
+
+# Save it to a string
+morse_code_string = ""
+morse_code.each { |element| morse_code_string << "#{element} "}
+
+# View string
+puts morse_code_string
+
+# Retrieve the morse code equivalence from the object
+morse_code_var = morse_obj.get_morse_code
+p morse_code_var
+
+# MORSE_HASH
+# Look at the hash map that translates alphabetical characters to morse code characters
+puts DitDah::DitDah::MORSE_HASH
+
+```
 
 ## Development
 
